@@ -220,7 +220,6 @@ const App = () => {
 
     // Wait for DOM to finish updating
     const raf = requestAnimationFrame(checkOverflow);
-    console.log('triggered');
     window.addEventListener('resize', checkOverflow);
     return () => {
       cancelAnimationFrame(raf);
