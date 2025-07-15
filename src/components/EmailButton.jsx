@@ -7,7 +7,7 @@ const instagramLink = 'https://www.instagram.com/___egavas___/';
 const gitHubLink = 'https://github.com/evansavage';
 
 const desktopToastOffset = { top: 100, right: 65 };
-const mobileToastOffset = { bottom: 240, left: 10 };
+const mobileToastOffset = { bottom: 230, left: 10 };
 
 const EmailButton = ({ to, subject, body, children }) => {
   const eSub = encodeURIComponent(subject);
