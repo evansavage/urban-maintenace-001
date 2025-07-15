@@ -423,7 +423,10 @@ const App = () => {
               }}
             >
               {shouldScroll ? (
-                <SmartTicker recalcDeps={[currentTrackName, currentTrackIndex]}>
+                <SmartTicker
+                  recalcDeps={[currentTrackName, currentTrackIndex]}
+                  style={{ marginRight: '40px' }}
+                >
                   <div
                     ref={contentRef}
                     style={{
