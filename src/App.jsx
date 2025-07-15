@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState, useLayoutEffect } from 'react';
 import ButterchurnVisualizer from './ButterchurnVisualizer';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
@@ -288,6 +288,7 @@ const App = () => {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
   const [shouldScroll, setShouldScroll] = useState(false);
+  const [currentTrackName, setCurrentTrackName] = useState('');
 
   const audioRef = useRef(null);
 
@@ -305,18 +306,25 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    setCurrentTrackName(
+      currentTrackIndex !== null ? audioPlaylist[currentTrackIndex].split('/')[2].split('.')[0] : ''
+    );
+  }, [currentTrackIndex, shouldScroll]);
+
+  useLayoutEffect(() => {
     const checkOverflow = () => {
-      if (
-        contentRef.current &&
-        containerRef.current &&
-        contentRef.current.scrollWidth > containerRef.current.clientWidth
-      ) {
-        setShouldScroll(true);
-      } else {
-        setShouldScroll(false);
+      const content = contentRef.current;
+      const container = containerRef.current;
+
+      if (content && container) {
+        const contentWidth = content.scrollWidth;
+        const containerWidth = container.clientWidth;
+
+        setShouldScroll(contentWidth > containerWidth);
       }
     };
 
+    // Observe changes to the contentRef node
     const observer = new MutationObserver(() => {
       checkOverflow();
     });
@@ -324,19 +332,23 @@ const App = () => {
     if (contentRef.current) {
       observer.observe(contentRef.current, {
         characterData: true,
-        subtree: true,
         childList: true,
+        subtree: true,
       });
     }
 
+    // Run once on mount or when track name changes
+    const raf = requestAnimationFrame(() => checkOverflow());
+
+    // Also check on window resize
     window.addEventListener('resize', checkOverflow);
-    checkOverflow(); // Run immediately once as well
 
     return () => {
       observer.disconnect();
       window.removeEventListener('resize', checkOverflow);
+      cancelAnimationFrame(raf);
     };
-  }, [currentTrackIndex]);
+  }, [currentTrackName]);
 
   const handleEnter = async () => {
     setEnterClicked(true);
@@ -360,23 +372,14 @@ const App = () => {
   };
 
   const handleNext = () => {
-    const next = (currentTrackIndex + 1) % (audioPlaylist.length - 1);
+    const next = (currentTrackIndex + 1) % audioPlaylist.length;
     setCurrentTrackIndex(next);
   };
 
   const handlePrevious = () => {
-    const prev = (currentTrackIndex - 1) % (audioPlaylist.length - 1);
+    const prev = (currentTrackIndex - 1 + audioPlaylist.length) % audioPlaylist.length;
     setCurrentTrackIndex(prev);
   };
-
-  const currentTrack = currentTrackIndex !== null ? audioPlaylist[currentTrackIndex] : null;
-
-  const getTrackName = (url) =>
-    url
-      ?.split('/')
-      .pop()
-      ?.replace(/\.[^/.]+$/, '') || '';
-
   return (
     <div>
       {!visualizerEnabled && (
@@ -387,7 +390,7 @@ const App = () => {
         </div>
       )}
 
-      {visualizerEnabled && audioContext && currentTrack && (
+      {visualizerEnabled && audioContext && currentTrackName && (
         <>
           <ButterchurnVisualizer audioContext={audioContext} audioElement={htmlAudioElement} />
           <EmailButton
@@ -416,32 +419,37 @@ const App = () => {
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',
+                width: '100%',
               }}
             >
               {shouldScroll ? (
-                <SmartTicker>
-                  <GlitchWord
+                <SmartTicker recalcDeps={[currentTrackName, currentTrackIndex]}>
+                  <div
                     ref={contentRef}
-                    text={getTrackName(currentTrack) + '        '}
                     style={{
-                      fontSize: '15px',
+                      display: 'inline-block',
+                      whiteSpace: 'nowrap',
                     }}
-                  />
+                  >
+                    <GlitchWord text={currentTrackName} style={{ fontSize: '15px' }} />
+                  </div>
                 </SmartTicker>
               ) : (
-                <GlitchWord
+                <div
                   ref={contentRef}
-                  text={getTrackName(currentTrack)}
                   style={{
-                    fontSize: '15px',
+                    display: 'inline-block',
+                    whiteSpace: 'nowrap',
                   }}
-                />
+                >
+                  <GlitchWord text={currentTrackName} style={{ fontSize: '15px' }} />
+                </div>
               )}
             </div>
             <AudioPlayer
-              key={currentTrack + currentTrackIndex}
+              key={currentTrackName + currentTrackIndex}
               ref={audioRef}
-              src={currentTrack}
+              src={audioPlaylist[currentTrackIndex]}
               autoPlay
               showSkipControls={true}
               showJumpControls={false} // These are 15s by default, we override with our own
