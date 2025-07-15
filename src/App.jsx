@@ -438,7 +438,7 @@ const App = () => {
           <div className="details-wrapper">
             <GlitchWord text="July 27th" />
             <GlitchWord text="2-10 AM" />
-            <GlitchWord text="Beach Location TBA" />
+            <GlitchWord text="Location TBA" />
           </div>
           <div className="audio-player-wrapper">
             <div
