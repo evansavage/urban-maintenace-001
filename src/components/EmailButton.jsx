@@ -64,12 +64,12 @@ const EmailButton = ({ to, subject, body, children }) => {
 
       <GiAlienBug
         size={28}
-        color="red"
+        color={isOpen ? 'limegreen' : 'red'}
         onClick={toggleModal}
         style={{
           cursor: 'pointer',
           marginLeft: '10px',
-          transition: 'transform 0.2s ease-in-out',
+          transition: 'transform 0.2s ease-in-out, color 0.2s ease',
           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
         }}
       />
