@@ -118,7 +118,7 @@ const GlitchWord = forwardRef(
       >
         <div
           ref={ref}
-          className={className}
+          className={'glitch-text' + className}
           style={{
             fontSize: '3.5rem',
             fontFamily: 'monospace',
@@ -267,9 +267,9 @@ const EmailButton = ({ to, subject, body, children }) => {
           borderRadius: '6px',
           fontFamily: 'monospace',
           fontWeight: 'bold',
-          border: '1px solid black',
+          // border: '1px solid black',
           textDecoration: 'none',
-          mixBlendMode: 'difference',
+          mixBlendMode: 'normal',
         }}
       >
         {children}
@@ -419,7 +419,7 @@ const App = () => {
             subject="URBAN MAINTENANCE 001"
             body="<Hey! Remove this and write to us about the party! We're excited to have ya :)>"
           >
-            <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px' }} />
+            <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px', mixBlendMode: 'normal' }} />
           </EmailButton>
 
           <GlitchOverlay />
