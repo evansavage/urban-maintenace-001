@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { GiAlienBug } from 'react-icons/gi';
-import { FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaGithub } from 'react-icons/fa';
+
+const instagramLink = 'https://www.instagram.com/___egavas___/';
+const gitHubLink = 'https://github.com/evansavage';
 
 const EmailButton = ({ to, subject, body, children }) => {
   const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -44,6 +47,10 @@ const EmailButton = ({ to, subject, body, children }) => {
     }
   }, [isVisible, isOpen]);
 
+  const handleClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="email-button-wrapper">
       <a
@@ -80,6 +87,7 @@ const EmailButton = ({ to, subject, body, children }) => {
           style={{
             position: 'fixed',
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             top: '50%',
@@ -106,7 +114,7 @@ const EmailButton = ({ to, subject, body, children }) => {
           <p style={{ color: 'black', fontSize: '15px' }}>
             This website was created by{' '}
             <a
-              href="https://www.instagram.com/___egavas___/"
+              href={instagramLink}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'blue' }}
@@ -114,9 +122,17 @@ const EmailButton = ({ to, subject, body, children }) => {
               egavas
             </a>
           </p>
-          {/* <div>
-            <FaInstagram />
-          </div> */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              width: '60px',
+              justifyContent: 'space-between',
+            }}
+          >
+            <FaInstagram color="blue" size={20} onClick={() => handleClick(instagramLink)} />
+            <FaGithub color="blue" size={20} onClick={() => handleClick(gitHubLink)} />
+          </div>
         </div>
       )}
     </div>

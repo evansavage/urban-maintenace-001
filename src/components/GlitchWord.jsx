@@ -1,16 +1,11 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { glitchProfiles } from '../ArtistProfiles';
+import { getRandomInt } from '../ArtistProfiles';
 
 const randomChar = () => {
   const chars = '█▓▒░#@!?%#';
   return chars[Math.floor(Math.random() * chars.length)];
 };
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min); // Round up the min
-  max = Math.floor(max); // Round down the max
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 const scramble = (text, rate) => {
   return text
@@ -23,7 +18,7 @@ const GlitchWord = forwardRef(
   ({ text, style = {}, className = '', time = '', timeTable = false }, ref) => {
     const [glitchedText, setGlitchedText] = useState(text);
     const profile = glitchProfiles.find((artist) => artist.name === text) || {
-      interval: getRandomInt(100, 350),
+      interval: getRandomInt(),
       jitter: true,
       swapRate: 0.1,
     };

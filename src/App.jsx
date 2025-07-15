@@ -184,7 +184,7 @@ const App = () => {
           <GlitchOverlay />
           <div className="details-wrapper">
             <GlitchWord text="July 27th" />
-            <GlitchWord text="2-10 AM" />
+            <GlitchWord text="2 AM - 10 AM" />
             <GlitchWord text="Beach Location TBA" />
           </div>
           <div className="audio-player-wrapper">

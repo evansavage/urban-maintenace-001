@@ -1,7 +1,13 @@
+export const getRandomInt = (min = 40, max = 200) => {
+  min = Math.ceil(min); // Round up the min
+  max = Math.floor(max); // Round down the max
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export const glitchProfiles = [
   {
     name: '98dots',
-    interval: 500,
+    interval: getRandomInt(),
     jitter: true,
     swapRate: 0.3,
     url: 'https://www.instagram.com/98dots/',
@@ -9,7 +15,7 @@ export const glitchProfiles = [
   },
   {
     name: 'fabiola',
-    interval: 800,
+    interval: getRandomInt(),
     jitter: false,
     swapRate: 0.4,
     url: 'https://www.instagram.com/fabi0la/',
@@ -17,7 +23,7 @@ export const glitchProfiles = [
   },
   {
     name: 'egavas',
-    interval: 350,
+    interval: getRandomInt(),
     jitter: true,
     swapRate: 0.1,
     url: 'https://www.instagram.com/___egavas___/',
@@ -25,7 +31,7 @@ export const glitchProfiles = [
   },
   {
     name: 'roni',
-    interval: 1200,
+    interval: getRandomInt(),
     jitter: false,
     swapRate: 0.3,
     url: 'https://www.instagram.com/roni_pit/',
