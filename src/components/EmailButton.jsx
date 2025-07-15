@@ -93,8 +93,6 @@ const EmailButton = ({ to, subject, body, children }) => {
       <Toaster
         containerStyle={{
           fontFamily: 'monospace',
-          mixBlendMode: 'difference',
-
           borderRadius: '2px',
           zIndex: 1000,
           ...toastOffset,
@@ -103,7 +101,8 @@ const EmailButton = ({ to, subject, body, children }) => {
         reverseOrder={toastPosition !== 'top-right'}
         toastOptions={{
           style: {
-            backgroundColor: 'rgba(255, 255, 255, 0.39)',
+            // mixBlendMode: 'difference',
+            backgroundColor: '#fff',
             backdropFilter: 'blur(8px)',
             color: 'black',
             boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
