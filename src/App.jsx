@@ -15,9 +15,15 @@ const audioPlaylist = [
   '/tracks/Dark Just - Sunun.mp3',
   '/tracks/オゾンリズム Ozone Riddim - Ultrakey.mp3',
   '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
-  '/tracks/Bakwenas - Pure Science.mp3',
   '/tracks/Vaporware 07 - Donato Dozzy.mp3',
   '/tracks/Portal - Markus Suckut.mp3',
+  '/tracks/ipsome - egavas.mp3',
+  "/tracks/And - Stomu Yamash'ta.mp3",
+  '/tracks/Crystal - Koxbox.mp3',
+  '/tracks/Everything but You - Seul Ensemble.mp3',
+  '/tracks/On The Beach - Timefall Mix.mp3',
+  '/tracks/Paradise Engineering - Barker.mp3',
+  '/tracks/planar - egavas.mp3',
 ];
 
 const glitchProfiles = {
@@ -324,7 +330,7 @@ const App = () => {
             subject="URBAN MAINTENANCE 001"
             body="<Hey! Remove this and write to us about the party! We're excited to have ya :)>"
           >
-            <GlitchWord text="Get in Touch" style={{ fontSize: '20px' }} />
+            <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px' }} />
           </EmailButton>
 
           <GlitchOverlay />
