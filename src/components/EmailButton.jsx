@@ -6,7 +6,10 @@ const instagramLink = 'https://www.instagram.com/___egavas___/';
 const gitHubLink = 'https://github.com/evansavage';
 
 const EmailButton = ({ to, subject, body, children }) => {
-  const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const eSub = encodeURIComponent(subject);
+  const eBody = encodeURIComponent(body);
+  const href = `mailto:${to}?subject=${eSub}&body=${eBody}`;
+  const gmailLink = `https://mail.google.com/mail/?view=cm&to=${to}&su=${eSub}&body=${eBody}`;
   const [isOpen, setIsOpen] = useState(false); // Mounted
   const [isVisible, setIsVisible] = useState(false); // Fade in/out
   const modalRef = useRef(null);
@@ -54,7 +57,8 @@ const EmailButton = ({ to, subject, body, children }) => {
   return (
     <div className="email-button-wrapper">
       <a
-        href={href}
+        href={gmailLink}
+        target="_blank"
         style={{
           display: 'inline-block',
           padding: '10px 20px',
