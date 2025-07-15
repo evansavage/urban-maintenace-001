@@ -29,7 +29,7 @@ const glitchProfiles = [
     name: '98dots',
     interval: 500,
     jitter: true,
-    swapRate: 0.2,
+    swapRate: 0.3,
     url: 'https://www.instagram.com/98dots/',
     time: '4-6',
   },
