@@ -381,6 +381,13 @@ body {
   width: calc(100vw - 20px);
 }
 
+.glitch-text {
+  mix-blend-mode: difference;
+  will-change: transform, opacity;
+  transform: translateZ(0); /* or scale(1) */
+  backface-visibility: hidden;
+}
+
 .artist-wrapper {
   display: flex;
   flex-direction: column;
