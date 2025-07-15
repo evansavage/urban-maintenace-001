@@ -79,6 +79,7 @@ const EmailButton = ({ to, subject, body, children }) => {
           marginLeft: '10px',
           transition: 'transform 0.2s ease-in-out, color 0.2s ease',
           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+          mixBlendMode: 'difference',
         }}
       />
       {isOpen && (
