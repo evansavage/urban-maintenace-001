@@ -383,8 +383,6 @@ body {
 
 .glitch-text {
   mix-blend-mode: difference;
-  will-change: transform, opacity;
-  transform: translateZ(0); /* or scale(1) */
   backface-visibility: hidden;
 }
 
@@ -416,6 +414,11 @@ body {
   position: absolute;
   top: 30px;
   right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 240px;
 }
 
 .enter-button-container {

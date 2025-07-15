@@ -6,6 +6,7 @@ import './App.css';
 import { BsSkipEndFill, BsSkipStartFill } from 'react-icons/bs';
 import { SmartTicker } from 'react-smart-ticker';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TfiSignal } from 'react-icons/tfi';
 
 const useTimetable = import.meta.env.VITE_USE_TIMETABLE === 'true';
 
@@ -137,10 +138,6 @@ const GlitchWord = forwardRef(
             color: 'white',
             mixBlendMode: 'difference',
             textShadow: '0 0 2px red, 0 0 4px cyan',
-            transform: profile.jitter
-              ? `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`
-              : 'none',
-            transition: 'transform 0.1s',
             pointerEvents: 'none',
             ...style,
           }}
@@ -286,6 +283,13 @@ const EmailButton = ({ to, subject, body, children }) => {
       >
         {children}
       </a>
+
+      <TfiSignal
+        size={40}
+        color="white"
+        onClick={() => console.log('bruh')}
+        style={{ cursor: 'pointer' }}
+      />
     </div>
   );
 };
