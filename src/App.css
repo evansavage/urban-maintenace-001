@@ -418,7 +418,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-width: 240px;
+  min-width: 230px;
 }
 
 .enter-button-container {
