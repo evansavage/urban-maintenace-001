@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { GiAlienBug } from 'react-icons/gi';
-import { FaInstagram, FaGithub } from 'react-icons/fa';
+import { FaInstagram, FaGithub, FaBandcamp } from 'react-icons/fa';
 import { toast, Toaster } from 'react-hot-toast';
 
 const instagramLink = 'https://www.instagram.com/___egavas___/';
 const gitHubLink = 'https://github.com/evansavage';
+const bandCampLink = 'https://egavas.bandcamp.com/music';
 
 const desktopToastOffset = { top: 100, right: 65 };
 const mobileToastOffset = { bottom: 230, left: 10 };
@@ -189,12 +190,28 @@ const EmailButton = ({ to, subject, body, children }) => {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              width: '60px',
+              width: '90px',
               justifyContent: 'space-between',
             }}
           >
-            <FaInstagram color="blue" size={20} onClick={() => handleClick(instagramLink)} />
-            <FaGithub color="blue" size={20} onClick={() => handleClick(gitHubLink)} />
+            <FaInstagram
+              color="blue"
+              size={20}
+              onClick={() => handleClick(instagramLink)}
+              style={{ cursor: 'pointer' }}
+            />
+            <FaGithub
+              color="blue"
+              size={20}
+              onClick={() => handleClick(gitHubLink)}
+              style={{ cursor: 'pointer' }}
+            />
+            <FaBandcamp
+              color="blue"
+              size={20}
+              onClick={() => handleClick(bandCampLink)}
+              style={{ cursor: 'pointer' }}
+            />
           </div>
         </div>
       )}
