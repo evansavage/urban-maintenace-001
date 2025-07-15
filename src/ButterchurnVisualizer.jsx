@@ -83,7 +83,7 @@ const ButterchurnVisualizer = ({ audioContext, audioElement, activePreset }) => 
         width: '100vw',
         height: '100vh',
         display: 'block',
-        zIndex: -1,
+        zIndex: 0,
       }}
     />
   );

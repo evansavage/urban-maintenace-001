@@ -384,9 +384,30 @@ const App = () => {
     <div>
       {!visualizerEnabled && (
         <div className={`enter-button-container ${enterClicked ? 'fade-out' : ''}`}>
-          <button className="enter-button" onClick={handleEnter} disabled={enterClicked}>
-            <GlitchWord text="enter" />
+          <GlitchWord
+            text="UM001"
+            style={{ position: 'absolute', top: '-120px', left: '-20px', width: '200px' }}
+          />
+          <button
+            className="enter-button"
+            onClick={handleEnter}
+            disabled={enterClicked}
+            style={{ backgroundColor: 'blue' }}
+          >
+            <GlitchWord text="enter" style={{ fontSize: '40px' }} />
           </button>
+          <div
+            style={{
+              fontFamily: 'monospace',
+              position: 'absolute',
+              left: '-54px',
+              bottom: '-90px',
+              fontSize: '20px',
+              width: '280px',
+            }}
+          >
+            ⚠️ flashing lights! ⚠️
+          </div>
         </div>
       )}
 

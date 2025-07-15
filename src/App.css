@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+body {
+  background-color: #130096 !important;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -405,6 +409,10 @@
   position: absolute;
   top: 30px;
   right: 20px;
+}
+
+.enter-button-container {
+  position: relative;
 }
 
 @media (max-width: 920px) {
