@@ -156,7 +156,6 @@ const GlitchOverlay = ({ activePreset }) => {
         className="poster-title"
         style={{ marginBottom: '30px', marginTop: '20px' }}
       />
-      {toString(activePreset)}
       <div className="artist-wrapper">
         {Object.keys(glitchProfiles).map((name) => (
           <GlitchWord key={name} text={name} className="artist-name" />
@@ -218,11 +217,23 @@ const App = () => {
       }
     };
 
-    // Wait for DOM to finish updating
-    const raf = requestAnimationFrame(checkOverflow);
+    const observer = new MutationObserver(() => {
+      checkOverflow();
+    });
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current, {
+        characterData: true,
+        subtree: true,
+        childList: true,
+      });
+    }
+
     window.addEventListener('resize', checkOverflow);
+    checkOverflow(); // Run immediately once as well
+
     return () => {
-      cancelAnimationFrame(raf);
+      observer.disconnect();
       window.removeEventListener('resize', checkOverflow);
     };
   }, [currentTrackIndex]);
@@ -285,6 +296,11 @@ const App = () => {
           />
 
           <GlitchOverlay />
+          <div className="details-wrapper">
+            <GlitchWord text="July 27th" />
+            <GlitchWord text="2-10 AM" />
+            <GlitchWord text="Beach Location TBA" />
+          </div>
           <div className="audio-player-wrapper">
             <div
               ref={containerRef}

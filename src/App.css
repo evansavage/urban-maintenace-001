@@ -385,7 +385,20 @@
   height: 40%;
 }
 
-@media (max-width: 646) {
+.artist-name {
+  font-size: 40px !important;
+}
+
+.details-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+
+  div {
+    text-align: left;
+    font-size: 20px !important;
+  }
 }
 
 @media (max-width: 646px) {
@@ -400,9 +413,10 @@
     height: 60% !important;
   }
 
-  .artist-wrapper {
-  }
   .audio-player-wrapper {
     padding: 10px;
+  }
+  .details-wrapper {
+    bottom: 40%;
   }
 }
