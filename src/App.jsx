@@ -197,7 +197,7 @@ const GlitchOverlay = () => {
       <GlitchWord
         text="URBAN MAINTENANCE"
         className="poster-title"
-        style={{ marginBottom: '30px', marginTop: '20px' }}
+        style={{ marginBottom: '30px', marginTop: '11px' }}
       />
       <div className="artist-wrapper">
         <ul style={{ listStyle: 'none', padding: 0 }}>
