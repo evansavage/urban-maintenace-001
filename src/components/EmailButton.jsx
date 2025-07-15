@@ -114,9 +114,9 @@ const EmailButton = ({ to, subject, body, children }) => {
               egavas
             </a>
           </p>
-          <div>
+          {/* <div>
             <FaInstagram />
-          </div>
+          </div> */}
         </div>
       )}
     </div>
