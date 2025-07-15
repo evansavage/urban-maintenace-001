@@ -12,7 +12,6 @@ const allPresets = butterchurnPresets.getPresets();
 const presetNames = Object.keys(allPresets);
 
 const audioPlaylist = [
-  '/tracks/test.wav',
   '/tracks/Dark Just - Sunun.mp3',
   '/tracks/オゾンリズム Ozone Riddim - Ultrakey.mp3',
   '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
