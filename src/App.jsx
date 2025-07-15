@@ -118,7 +118,7 @@ const GlitchWord = forwardRef(
       >
         <div
           ref={ref}
-          className={'glitch-text' + className}
+          className={'glitch-text ' + className}
           style={{
             fontSize: '3.5rem',
             fontFamily: 'monospace',
