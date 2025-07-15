@@ -407,12 +407,12 @@
   right: 20px;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 940px) {
   .poster-title {
-    font-size: 30px !important;
+    font-size: 28px !important;
   }
   .artist-name {
-    font-size: 28px !important;
+    font-size: 26px !important;
   }
   .names-container {
     left: 10px !important;
