@@ -20,7 +20,7 @@ function shuffleArray(array) {
 
 let audioPlaylist = [
   '/tracks/Dark Just - Sunun.mp3',
-  '/tracks/Ozone Riddim - Ultrakey.mp3',
+  '/tracks/オゾンリズム Ozone Riddim - Ultrakey.mp3',
   '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
   '/tracks/Vaporware 07 - Donato Dozzy.mp3',
   '/tracks/Portal - Markus Suckut.mp3',
