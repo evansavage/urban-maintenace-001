@@ -353,7 +353,7 @@ const App = () => {
                     ref={contentRef}
                     text={getTrackName(currentTrack) + '        '}
                     style={{
-                      fontSize: '20px',
+                      fontSize: '15px',
                     }}
                   />
                 </SmartTicker>
@@ -362,7 +362,7 @@ const App = () => {
                   ref={contentRef}
                   text={getTrackName(currentTrack)}
                   style={{
-                    fontSize: '20px',
+                    fontSize: '15px',
                   }}
                 />
               )}
