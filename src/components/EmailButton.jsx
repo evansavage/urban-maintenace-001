@@ -94,12 +94,20 @@ const EmailButton = ({ to, subject, body, children }) => {
         containerStyle={{
           fontFamily: 'monospace',
           mixBlendMode: 'difference',
+
           borderRadius: '2px',
           zIndex: 1000,
           ...toastOffset,
         }}
         position={toastPosition}
         reverseOrder={toastPosition !== 'top-right'}
+        toastOptions={{
+          style: {
+            backgroundColor: 'rgba(255, 255, 255, 0.39)',
+            backdropFilter: 'blur(8px)',
+            color: 'black',
+          },
+        }}
       />
       <a
         onClick={handleCopy}
@@ -119,18 +127,22 @@ const EmailButton = ({ to, subject, body, children }) => {
         {children}
       </a>
 
-      <GiAlienBug
-        size={28}
-        color={isOpen ? 'limegreen' : 'red'}
+      <div
         onClick={toggleModal}
         style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#fff0',
+          mixBlendMode: 'difference',
+          borderRadius: '50%', // optional
           cursor: 'pointer',
-          marginLeft: '10px',
           transition: 'transform 0.2s ease-in-out, color 0.2s ease',
           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-          mixBlendMode: 'difference',
         }}
-      />
+      >
+        <GiAlienBug size={28} color={isOpen ? 'limegreen' : 'red'} />
+      </div>
       {isOpen && (
         <div
           ref={modalRef}
