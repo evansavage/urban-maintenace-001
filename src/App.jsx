@@ -7,7 +7,7 @@ import { BsSkipEndFill, BsSkipStartFill } from 'react-icons/bs';
 import { SmartTicker } from 'react-smart-ticker';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const USE_TIMETABLE = false;
+const useTimetable = import.meta.env.VITE_USE_TIMETABLE === 'true';
 
 const audioPlaylist = [
   '/tracks/Dark Just - Sunun.mp3',
@@ -240,7 +240,7 @@ const GlitchOverlay = () => {
           </AnimatePresence>
         </ul>
       </div>
-      {!!USE_TIMETABLE && (
+      {!!useTimetable && (
         <button
           style={{ pointerEvents: 'auto', fontFamily: 'monospace' }}
           onClick={onTimeTableClick}
