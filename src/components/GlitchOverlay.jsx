@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import GlitchWord from './GlitchWord';
 import { glitchProfiles } from '../ArtistProfiles';
 
-const useTimetable = import.meta.env.VITE_USE_TIMETABLE === 'true';
-
 const GlitchOverlay = ({ timeTable, onTimeTableClick }) => {
   const timeTableOrder = [2, 0, 1, 3];
   const [artistList, setArtistList] = useState(glitchProfiles);
@@ -80,14 +78,14 @@ const GlitchOverlay = ({ timeTable, onTimeTableClick }) => {
           </AnimatePresence>
         </ul>
       </div>
-      {!!useTimetable && (
+      {/* {!!useTimetable && (
         <button
           style={{ pointerEvents: 'auto', fontFamily: 'monospace' }}
           onClick={onTimeTableClick}
         >
           {timeTable ? 'Off' : 'Timetable'}
         </button>
-      )}
+      )} */}
     </div>
   );
 };
