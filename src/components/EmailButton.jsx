@@ -36,9 +36,9 @@ const EmailButton = ({ to, subject, body, children }) => {
     try {
       await navigator.clipboard.writeText(to);
       toast.remove();
-      toast.success('Email copied ✅ Get in Touch 🤗', { id: new Date().toLocaleTimeString() });
+      toast.success('Email copied - Get in Touch 🤗', { id: new Date().toLocaleTimeString() });
     } catch (err) {
-      toast.error('Failed to copy email.');
+      toast.error('Failed to copy email. Please try again.');
     }
   };
 
