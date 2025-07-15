@@ -410,6 +410,7 @@
 @media (max-width: 920px) {
   .poster-title {
     font-size: 30px !important;
+    margin-bottom: 0px !important;
   }
   .artist-name {
     font-size: 28px !important;
