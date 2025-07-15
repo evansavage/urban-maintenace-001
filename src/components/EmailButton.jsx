@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { GiAlienBug } from 'react-icons/gi';
 import { FaInstagram, FaGithub } from 'react-icons/fa';
+import { toast, Toaster } from 'react-hot-toast';
 
 const instagramLink = 'https://www.instagram.com/___egavas___/';
 const gitHubLink = 'https://github.com/evansavage';
+
+const desktopToastOffset = { top: 100, right: 65 };
+const mobileToastOffset = { bottom: 240, left: 10 };
 
 const EmailButton = ({ to, subject, body, children }) => {
   const eSub = encodeURIComponent(subject);
@@ -13,6 +17,8 @@ const EmailButton = ({ to, subject, body, children }) => {
   const [isOpen, setIsOpen] = useState(false); // Mounted
   const [isVisible, setIsVisible] = useState(false); // Fade in/out
   const modalRef = useRef(null);
+  const [toastPosition, setToastPosition] = useState('top-right');
+  const [toastOffset, setToastOffset] = useState(desktopToastOffset);
 
   // Open modal handler
   const toggleModal = () => {
@@ -22,6 +28,15 @@ const EmailButton = ({ to, subject, body, children }) => {
     } else {
       setIsVisible(false); // trigger fade out
       setTimeout(() => setIsOpen(false), 200); // unmount after fade
+    }
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(to);
+      toast.success('Email copied ✅ Get in Touch 🤗', { id: new Date().toLocaleTimeString() });
+    } catch (err) {
+      toast.error('Failed to copy email.');
     }
   };
 
@@ -54,11 +69,40 @@ const EmailButton = ({ to, subject, body, children }) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 920) {
+        setToastPosition('bottom-left');
+        setToastOffset(mobileToastOffset);
+      } else {
+        setToastPosition('top-right');
+        setToastOffset(desktopToastOffset);
+      }
+    };
+
+    // Set on load
+    handleResize();
+
+    // Listen to resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="email-button-wrapper">
+      <Toaster
+        containerStyle={{
+          fontFamily: 'monospace',
+          mixBlendMode: 'difference',
+          borderRadius: '2px',
+          zIndex: 1000,
+          ...toastOffset,
+        }}
+        position={toastPosition}
+        reverseOrder={toastPosition !== 'top-right'}
+      />
       <a
-        href={gmailLink}
-        target="_blank"
+        onClick={handleCopy}
         style={{
           display: 'inline-block',
           padding: '10px 20px',
@@ -69,6 +113,7 @@ const EmailButton = ({ to, subject, body, children }) => {
           fontWeight: 'bold',
           textDecoration: 'none',
           mixBlendMode: 'normal',
+          cursor: 'pointer',
         }}
       >
         {children}
