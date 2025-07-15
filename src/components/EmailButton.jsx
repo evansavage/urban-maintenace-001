@@ -97,8 +97,7 @@ const EmailButton = ({ to, subject, body, children }) => {
             margin: '0 25px',
             width: '80%', // ✅ Make it flexible
             maxWidth: '400px', // ✅ Cap at 400px
-
-            height: '320px',
+            height: '200px',
             textAlign: 'center',
             fontFamily: 'monospace',
           }}
