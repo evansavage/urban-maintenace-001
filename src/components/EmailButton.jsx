@@ -8,16 +8,22 @@ const EmailButton = ({ to, subject, body, children }) => {
   const modalRef = useRef(null);
 
   // Open modal handler
-  const openModal = () => {
-    setIsOpen(true); // Mount modal
-    setTimeout(() => setIsVisible(true), 10); // Trigger fade in
+  const toggleModal = () => {
+    if (!isOpen) {
+      setIsOpen(true);
+      setTimeout(() => setIsVisible(true), 10); // fade in
+    } else {
+      setIsVisible(false); // trigger fade out
+      setTimeout(() => setIsOpen(false), 200); // unmount after fade
+    }
   };
 
   // Click outside to close
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
-        setIsVisible(false); // Trigger fade out
+        setIsVisible(false);
+        setTimeout(() => setIsOpen(false), 200);
       }
     };
 
@@ -59,8 +65,13 @@ const EmailButton = ({ to, subject, body, children }) => {
       <GiAlienBug
         size={28}
         color="red"
-        onClick={openModal}
-        style={{ cursor: 'pointer', marginLeft: '10px' }}
+        onClick={toggleModal}
+        style={{
+          cursor: 'pointer',
+          marginLeft: '10px',
+          transition: 'transform 0.2s ease-in-out',
+          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        }}
       />
 
       {isOpen && (
