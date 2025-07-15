@@ -9,7 +9,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const useTimetable = import.meta.env.VITE_USE_TIMETABLE === 'true';
 
-const audioPlaylist = [
+function shuffleArray(array) {
+  const arr = [...array]; // make a copy to avoid mutating the original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+let audioPlaylist = [
   '/tracks/Dark Just - Sunun.mp3',
   '/tracks/Ozone Riddim - Ultrakey.mp3',
   '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
@@ -22,7 +31,10 @@ const audioPlaylist = [
   '/tracks/On The Beach (Timefall Mix) - Caroline Polachek.mp3',
   '/tracks/Paradise Engineering - Barker.mp3',
   '/tracks/planar - egavas.mp3',
+  '/tracks/The Beach - Dan Meyer.mp3',
 ];
+
+audioPlaylist = shuffleArray(audioPlaylist);
 
 const glitchProfiles = [
   {
