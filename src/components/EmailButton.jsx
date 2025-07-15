@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { GiAlienBug } from 'react-icons/gi';
+import { FaInstagram } from 'react-icons/fa';
 
 const EmailButton = ({ to, subject, body, children }) => {
   const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -113,6 +114,9 @@ const EmailButton = ({ to, subject, body, children }) => {
               egavas
             </a>
           </p>
+          <div>
+            <FaInstagram />
+          </div>
         </div>
       )}
     </div>

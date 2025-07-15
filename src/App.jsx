@@ -20,12 +20,13 @@ function shuffleArray(array) {
 
 let audioPlaylist = [
   '/tracks/Dark Just - Sunun.mp3',
-  '/tracks/オゾンリズム Ozone Riddim - Ultrakey.mp3',
+  '/tracks/Ozone Riddim - Ultrakey.mp3',
+  '/tracks/Alles Klar - The Sentinel.mp3',
   '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
   '/tracks/Vaporware 07 - Donato Dozzy.mp3',
   '/tracks/Portal - Markus Suckut.mp3',
-  '/tracks/ipsome - egavas.mp3',
   "/tracks/And - Stomu Yamash'ta.mp3",
+  '/tracks/Let It Rip - Digitalis.mp3',
   '/tracks/Crystal - Koxbox.mp3',
   '/tracks/Everything but You - Seul Ensemble.mp3',
   '/tracks/On The Beach (Timefall Mix) - Caroline Polachek.mp3',
@@ -65,7 +66,7 @@ const App = () => {
 
   useEffect(() => {
     setCurrentTrackName(
-      currentTrackIndex !== null ? audioPlaylist[currentTrackIndex].split('/')[2].split('.')[0] : ''
+      currentTrackIndex !== null ? audioPlaylist[currentTrackIndex].split('/')[2] : ''
     );
   }, [currentTrackIndex, shouldScroll]);
 

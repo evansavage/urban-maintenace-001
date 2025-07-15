@@ -6,6 +6,12 @@ const randomChar = () => {
   return chars[Math.floor(Math.random() * chars.length)];
 };
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min); // Round up the min
+  max = Math.floor(max); // Round down the max
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const scramble = (text, rate) => {
   return text
     .split('')
@@ -17,7 +23,7 @@ const GlitchWord = forwardRef(
   ({ text, style = {}, className = '', time = '', timeTable = false }, ref) => {
     const [glitchedText, setGlitchedText] = useState(text);
     const profile = glitchProfiles.find((artist) => artist.name === text) || {
-      interval: 350,
+      interval: getRandomInt(100, 350),
       jitter: true,
       swapRate: 0.1,
     };
@@ -54,7 +60,6 @@ const GlitchWord = forwardRef(
         style={{
           textDecoration: 'none',
           pointerEvents: 'auto', // override inner pointerEvents: none
-          mixBlendMode: 'difference',
           whiteSpace: 'nowrap',
         }}
       >
@@ -84,9 +89,9 @@ const GlitchWord = forwardRef(
           color: 'white',
           mixBlendMode: 'difference',
           textShadow: '0 0 2px red, 0 0 4px cyan',
-          transform: profile.jitter
-            ? `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`
-            : 'none',
+          //   transform: profile.jitter
+          //     ? `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`
+          //     : 'none',
           transition: 'transform 0.1s',
           pointerEvents: 'none',
           ...style,
