@@ -73,7 +73,6 @@ const EmailButton = ({ to, subject, body, children }) => {
           transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
         }}
       />
-
       {isOpen && (
         <div
           ref={modalRef}
