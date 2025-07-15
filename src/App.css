@@ -405,6 +405,7 @@ body {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  mix-blend-mode: difference;
 
   div {
     text-align: left;
