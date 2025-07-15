@@ -106,6 +106,7 @@ const EmailButton = ({ to, subject, body, children }) => {
             backgroundColor: 'rgba(255, 255, 255, 0.39)',
             backdropFilter: 'blur(8px)',
             color: 'black',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
           },
         }}
       />
@@ -166,8 +167,8 @@ const EmailButton = ({ to, subject, body, children }) => {
             boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
             backdropFilter: 'blur(8px)',
             margin: '0 25px',
-            width: '80%', // ✅ Make it flexible
-            maxWidth: '400px', // ✅ Cap at 400px
+            width: '400px', // ✅ Make it flexible
+            maxWidth: 'calc(100vw - 68px)', // ✅ Cap at 400px
             height: '150px',
             textAlign: 'center',
             fontFamily: 'monospace',
