@@ -187,7 +187,7 @@ const App = () => {
             <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px', mixBlendMode: 'normal' }} />
           </EmailButton>
 
-          <GlitchOverlay timeTable={timeTable} onTimeTableClick={onTimeTableClick} />
+          <GlitchOverlay timeTable={timeTable} />
           <div className="details-wrapper">
             <GlitchWord text="July 27th" />
             <GlitchWord

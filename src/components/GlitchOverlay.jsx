@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import GlitchWord from './GlitchWord';
 import { glitchProfiles } from '../ArtistProfiles';
 
-const GlitchOverlay = ({ timeTable, onTimeTableClick }) => {
-  const timeTableOrder = [2, 0, 1, 3];
+const timeTableOrder = [2, 0, 1, 3];
+
+const GlitchOverlay = ({ timeTable }) => {
   const [artistList, setArtistList] = useState(glitchProfiles);
 
   useEffect(() => {
