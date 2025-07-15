@@ -5,14 +5,9 @@ import { glitchProfiles } from '../ArtistProfiles';
 
 const useTimetable = import.meta.env.VITE_USE_TIMETABLE === 'true';
 
-const GlitchOverlay = () => {
+const GlitchOverlay = ({ timeTable, onTimeTableClick }) => {
   const timeTableOrder = [2, 0, 1, 3];
   const [artistList, setArtistList] = useState(glitchProfiles);
-  const [timeTable, setTimeTable] = useState(false);
-
-  const onTimeTableClick = () => {
-    setTimeTable((timeTable) => !timeTable);
-  };
 
   useEffect(() => {
     if (timeTable) {

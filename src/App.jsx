@@ -49,6 +49,12 @@ const App = () => {
   const [shouldScroll, setShouldScroll] = useState(false);
   const [currentTrackName, setCurrentTrackName] = useState('');
 
+  const [timeTable, setTimeTable] = useState(false);
+
+  const onTimeTableClick = () => {
+    setTimeTable((timeTable) => !timeTable);
+  };
+
   const audioRef = useRef(null);
 
   const getRandomTrackIndex = (excludeIndex = null) => {
@@ -181,10 +187,14 @@ const App = () => {
             <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px', mixBlendMode: 'normal' }} />
           </EmailButton>
 
-          <GlitchOverlay />
+          <GlitchOverlay timeTable={timeTable} onTimeTableClick={onTimeTableClick} />
           <div className="details-wrapper">
             <GlitchWord text="July 27th" />
-            <GlitchWord text="2 AM - 10 AM" />
+            <GlitchWord
+              text="2 AM - 10 AM"
+              onClick={onTimeTableClick}
+              style={{ pointerEvents: 'auto' }}
+            />
             <GlitchWord text="Beach Location TBA" />
           </div>
           <div className="audio-player-wrapper">

@@ -15,7 +15,7 @@ const scramble = (text, rate) => {
 };
 
 const GlitchWord = forwardRef(
-  ({ text, style = {}, className = '', time = '', timeTable = false }, ref) => {
+  ({ text, style = {}, className = '', time = '', timeTable = false, onClick = () => {} }, ref) => {
     const [glitchedText, setGlitchedText] = useState(text);
     const profile = glitchProfiles.find((artist) => artist.name === text) || {
       interval: getRandomInt(),
@@ -91,6 +91,8 @@ const GlitchWord = forwardRef(
           pointerEvents: 'none',
           ...style,
         }}
+        role="button"
+        onClick={onClick}
       >
         {glitchedText}
       </div>
