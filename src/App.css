@@ -401,7 +401,13 @@
   }
 }
 
-@media (max-width: 646px) {
+.email-button-wrapper {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+
+@media (max-width: 920px) {
   .poster-title {
     font-size: 30px !important;
   }
@@ -418,5 +424,12 @@
   }
   .details-wrapper {
     bottom: 40%;
+  }
+
+  .email-button-wrapper {
+    left: 10px;
+    right: auto;
+    top: auto;
+    bottom: 200px;
   }
 }

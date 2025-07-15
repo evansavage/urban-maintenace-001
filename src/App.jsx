@@ -165,6 +165,32 @@ const GlitchOverlay = ({ activePreset }) => {
   );
 };
 
+const EmailButton = ({ to, subject, body, children }) => {
+  const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  return (
+    <div className="email-button-wrapper">
+      <a
+        href={href}
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          backgroundColor: 'blue',
+          color: '#fff',
+          borderRadius: '6px',
+          fontFamily: 'monospace',
+          fontWeight: 'bold',
+          border: '1px solid black',
+          textDecoration: 'none',
+          mixBlendMode: 'difference',
+        }}
+      >
+        {children}
+      </a>
+    </div>
+  );
+};
+
 const App = () => {
   const [htmlAudioElement, setHtmlAudioElement] = useState(null);
   const [audioContext, setAudioContext] = useState(null);
@@ -294,6 +320,13 @@ const App = () => {
             audioElement={htmlAudioElement}
             activePreset={activePreset}
           />
+          <EmailButton
+            to="track.maintenance.nyc@gmail.com"
+            subject="URBAN MAINTENANCE 001"
+            body="<Hey! Remove this and write to us about the party! We're excited to have ya :)>"
+          >
+            <GlitchWord text="Get in Touch" style={{ fontSize: '20px' }} />
+          </EmailButton>
 
           <GlitchOverlay />
           <div className="details-wrapper">

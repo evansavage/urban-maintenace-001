@@ -57,7 +57,7 @@ const ButterchurnVisualizer = ({ audioContext, audioElement, activePreset }) => 
       const nextPreset = allPresets[presetNames[Math.floor(Math.random() * presetNames.length)]];
       visualizer.loadPreset(nextPreset, 2.0);
       console.log(presetNames[Math.floor(Math.random() * presetNames.length)]);
-    }, 3000);
+    }, 5000);
 
     // Render loop
     const render = () => {
