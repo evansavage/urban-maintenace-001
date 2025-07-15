@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, useState, useLayoutEffect } from 'react';
-import ButterchurnVisualizer from './ButterchurnVisualizer';
+import ButterchurnVisualizer from './components/ButterchurnVisualizer';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
