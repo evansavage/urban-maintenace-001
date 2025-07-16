@@ -18,24 +18,34 @@ function shuffleArray(array) {
   return arr;
 }
 
-let audioPlaylist = [
-  '/tracks/Dark Just - Sunun.mp3',
-  '/tracks/Ozone Riddim - Ultrakey.mp3',
-  '/tracks/Alles Klar - The Sentinel.mp3',
-  '/tracks/Midnight 20_Edit - Eduardo de la Calle.mp3',
-  '/tracks/Vaporware 07 - Donato Dozzy.mp3',
-  '/tracks/Portal - Markus Suckut.mp3',
-  "/tracks/And - Stomu Yamash'ta.mp3",
-  '/tracks/Let It Rip - Digitalis.mp3',
-  '/tracks/Crystal - Koxbox.mp3',
-  '/tracks/Everything but You - Seul Ensemble.mp3',
-  '/tracks/On The Beach (Timefall Mix) - Caroline Polachek.mp3',
-  '/tracks/Paradise Engineering - Barker.mp3',
-  '/tracks/planar - egavas.mp3',
-  '/tracks/The Beach - Dan Meyer.mp3',
+const BASE_URL = 'https://media.urbanmaintenance.fyi/';
+
+const getURLEncodedBucketTrack = (trackName) => {
+  const bucketTrackName = BASE_URL + encodeURIComponent(trackName);
+  return bucketTrackName;
+};
+
+let trackNames = [
+  'Dark Just - Sunun.mp3',
+  'Ozone Riddim - Ultrakey.mp3',
+  'The Sentinel - Alles Klar.mp3',
+  'Midnight 20_Edit - Eduardo de la Calle.mp3',
+  'Vaporware 07 - Donato Dozzy.mp3',
+  'Portal - Markus Suckut.mp3',
+  "And - Stomu Yamash'ta.mp3",
+  'Let It Rip - Digitalis.mp3',
+  'Crystal - Koxbox.mp3',
+  'Everything but You - Seul Ensemble.mp3',
+  'On The Beach (Timefall Mix) - Caroline Polachek.mp3',
+  'Paradise Engineering - Barker.mp3',
+  'planar - egavas.mp3',
+  'The Beach - Dan Meyer.mp3',
 ];
 
-audioPlaylist = shuffleArray(audioPlaylist);
+trackNames = shuffleArray(trackNames);
+
+let audioPlaylist = trackNames.map((trackName) => '/tracks/' + trackName);
+console.log(audioPlaylist);
 
 const App = () => {
   const [htmlAudioElement, setHtmlAudioElement] = useState(null);
@@ -71,9 +81,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentTrackName(
-      currentTrackIndex !== null ? audioPlaylist[currentTrackIndex].split('/')[2] : ''
-    );
+    setCurrentTrackName(currentTrackIndex !== null ? trackNames[currentTrackIndex] : '');
   }, [currentTrackIndex, shouldScroll]);
 
   useLayoutEffect(() => {
@@ -128,6 +136,8 @@ const App = () => {
   const handlePlay = () => {
     const htmlAudio = audioRef.current?.audio?.current;
     if (!htmlAudio || !audioContext) return;
+    console.log('Audio element:', htmlAudio);
+    console.log('AudioContext state:', audioContext.state);
 
     setHtmlAudioElement(htmlAudio); // ⚠️ Only pass the audio element
 
@@ -249,6 +259,7 @@ const App = () => {
               layout="horizontal"
               onClickPrevious={handlePrevious}
               showDownloadProgress={false}
+              crossOrigin="anonymous"
               customIcons={{
                 previous: <BsSkipStartFill size={36} color="white" />,
                 next: <BsSkipEndFill size={36} color="white" />,
