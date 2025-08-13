@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import GlitchWord from './GlitchWord';
 import { glitchProfiles } from '../ArtistProfiles';
 
-const timeTableOrder = [2, 0, 1, 3];
+const timeTableOrder = [3, 1, 0, 2];
 
 const GlitchOverlay = ({ timeTable }) => {
   const [artistList, setArtistList] = useState(glitchProfiles);
@@ -50,15 +50,7 @@ const GlitchOverlay = ({ timeTable }) => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
               >
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    width: '300px',
-                    flexDirection: 'row',
-                    maxWidth: '280px',
-                  }}
-                >
+                <div className="artist-name-container">
                   <GlitchWord
                     text={`${artist.name}`}
                     className="artist-name"

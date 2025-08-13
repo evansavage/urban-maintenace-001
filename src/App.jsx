@@ -160,7 +160,7 @@ const App = () => {
       {!visualizerEnabled && (
         <div className={`enter-button-container ${enterClicked ? 'fade-out' : ''}`}>
           <GlitchWord
-            text="UM001"
+            text="UM002"
             style={{ position: 'absolute', top: '-120px', left: '-20px', width: '200px' }}
           />
           <button
@@ -191,15 +191,15 @@ const App = () => {
           <ButterchurnVisualizer audioContext={audioContext} audioElement={htmlAudioElement} />
           <EmailButton
             to="track.maintenance.nyc@gmail.com"
-            subject="URBAN MAINTENANCE 001"
+            subject="URBAN MAINTENANCE 002"
             body="<Hey! Remove this and write to us about the party! We're excited to have ya :)>"
           >
-            <GlitchWord text="RSVP - UM001" style={{ fontSize: '20px', mixBlendMode: 'normal' }} />
+            <GlitchWord text="RSVP - UM002" style={{ fontSize: '20px', mixBlendMode: 'normal' }} />
           </EmailButton>
 
           <GlitchOverlay timeTable={timeTable} />
           <div className="details-wrapper">
-            <GlitchWord text="July 27th" />
+            <GlitchWord text="August 24th" />
             <GlitchWord
               text="2 AM - 10 AM"
               onClick={onTimeTableClick}

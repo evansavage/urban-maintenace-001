@@ -428,6 +428,14 @@ body {
   position: relative;
 }
 
+.artist-name-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 450px;
+  max-width: 450px;
+}
+
 @media (max-width: 920px) {
   .poster-title {
     font-size: 30px !important;
@@ -439,6 +447,10 @@ body {
   .names-container {
     left: 10px !important;
     height: 60% !important;
+  }
+
+  .artist-name-container {
+    max-width: 320px;
   }
 
   .audio-player-wrapper {

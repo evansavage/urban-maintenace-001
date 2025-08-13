@@ -68,6 +68,7 @@ const GlitchWord = forwardRef(
             mixBlendMode: 'difference',
             textShadow: '0 0 2px red, 0 0 4px cyan',
             pointerEvents: 'none',
+            whiteSpace: 'nowrap',
             ...style,
           }}
         >
@@ -84,11 +85,9 @@ const GlitchWord = forwardRef(
           color: 'white',
           mixBlendMode: 'difference',
           textShadow: '0 0 2px red, 0 0 4px cyan',
-          //   transform: profile.jitter
-          //     ? `translate(${Math.random() * 2}px, ${Math.random() * 2}px)`
-          //     : 'none',
           transition: 'transform 0.1s',
           pointerEvents: 'none',
+          whiteSpace: 'nowrap',
           ...style,
         }}
         role="button"
