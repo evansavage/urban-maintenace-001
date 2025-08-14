@@ -5,14 +5,6 @@ export const getRandomInt = (min = 80, max = 400) => {
 };
 
 export const glitchProfiles = [
-  // {
-  //   name: 'Special Guest',
-  //   interval: getRandomInt(),
-  //   jitter: true,
-  //   swapRate: 0.3,
-  //   // url: 'https://www.instagram.com/98dots/',
-  //   time: '6-8',
-  // },
   {
     name: 'Zara Dekho',
     interval: getRandomInt(),
@@ -27,14 +19,22 @@ export const glitchProfiles = [
     jitter: false,
     swapRate: 0.4,
     url: 'https://www.instagram.com/marioszervos/',
-    time: '8-10',
+    time: '6-8',
   },
   {
     name: 'Buzi',
     interval: getRandomInt(),
     jitter: false,
     swapRate: 0.3,
-    url: 'https://www.instagram.com/roni_pit/',
+    url: 'https://www.instagram.com/buzibuzibuzibuzibuzibuzi/',
     time: '2-4',
+  },
+  {
+    name: 'Roni',
+    interval: getRandomInt(),
+    jitter: true,
+    swapRate: 0.3,
+    url: 'https://www.instagram.com/roni_pit/',
+    time: '8-10',
   },
 ];
