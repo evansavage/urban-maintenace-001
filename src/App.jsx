@@ -181,7 +181,7 @@ const App = () => {
               // position: 'absolute',
               // left: '-54px',
               // bottom: '-90px',
-              // fontSize: '20px',
+              fontSize: '20px',
               // width: '280px',
             }}
           >
